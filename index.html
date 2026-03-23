@@ -94,6 +94,10 @@
       color: #4f4338;
     }
 
+    h3 {
+      color: #4f4338;
+    }
+
     p {
       margin: 0 0 18px;
       color: #6d5f50;
@@ -159,7 +163,6 @@
       margin: 0 0 12px;
       font-size: 24px;
       font-weight: 400;
-      color: #4f4338;
     }
 
     .about-grid {
@@ -184,7 +187,9 @@
       border-radius: 22px;
     }
 
-    #slider {
+    #slider,
+    #logoSlider,
+    #printSlider {
       display: flex;
       transition: transform 0.5s ease;
     }
@@ -199,7 +204,26 @@
       background: #f3eee6;
     }
 
-    .slider-btn {
+    .small-carousel-wrap {
+      position: relative;
+      max-width: 760px;
+      margin: 32px auto 28px;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .small-slider img {
+      width: 100%;
+      flex: 0 0 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      object-position: center;
+      background: #f3eee6;
+    }
+
+    .slider-btn,
+    .small-slider-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -214,15 +238,18 @@
       line-height: 1;
     }
 
-    .slider-btn.left {
+    .slider-btn.left,
+    .small-slider-btn.left {
       left: 14px;
     }
 
-    .slider-btn.right {
+    .slider-btn.right,
+    .small-slider-btn.right {
       right: 14px;
     }
 
-    .content-copy {
+    .content-copy,
+    .section-copy {
       max-width: 860px;
       margin: 0 auto;
       text-align: center;
@@ -238,6 +265,12 @@
     .contact h2,
     .contact p {
       color: #ffffff;
+    }
+
+    .social-note {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #e8ddd1;
     }
 
     @media (max-width: 900px) {
@@ -261,10 +294,6 @@
       .founder-img {
         min-height: 0;
         height: auto;
-      }
-
-      #slider img {
-        aspect-ratio: 4 / 5;
       }
     }
 
@@ -299,11 +328,8 @@
         padding: 54px 0;
       }
 
-      #slider img {
-        aspect-ratio: 4 / 5;
-      }
-
-      .slider-btn {
+      .slider-btn,
+      .small-slider-btn {
         width: 38px;
         height: 38px;
         font-size: 20px;
@@ -453,6 +479,62 @@
     </div>
   </section>
 
+  <section class="section section-white">
+    <div class="wrap">
+      <h2 style="text-align:center;">Logo Design</h2>
+      <p style="text-align:center;max-width:760px;margin:0 auto 18px;">
+        Scroll through a selection of brands the studio has worked with and the real-life outcomes of their logo design, showing how each identity translates beyond the screen and into a business’s actual presence, packaging, and presentation.
+      </p>
+
+      <div class="small-carousel-wrap">
+        <div id="logoSlider" class="small-slider">
+          <img src="logo1.jpg" alt="Logo design example 1" />
+          <img src="logo2.jpg" alt="Logo design example 2" />
+          <img src="logo3.jpg" alt="Logo design example 3" />
+          <img src="logo4.jpg" alt="Logo design example 4" />
+          <img src="logo5.jpg" alt="Logo design example 5" />
+        </div>
+
+        <button type="button" class="small-slider-btn left" onclick="prevLogoSlide()">‹</button>
+        <button type="button" class="small-slider-btn right" onclick="nextLogoSlide()">›</button>
+      </div>
+
+      <div class="section-copy">
+        <p>
+          Each brand is approached with care and attention to detail, ensuring the final identity feels elevated, commercially relevant, and aligned with the standard the business wants to communicate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="wrap">
+      <h2 style="text-align:center;">Printed Marketing</h2>
+      <p style="text-align:center;max-width:760px;margin:0 auto 18px;">
+        Scroll through client imagery of printed marketing materials, including leaflets, vouchers, brochures, and branded pieces designed to feel cohesive, polished, and professionally finished in hand as well as on screen.
+      </p>
+
+      <div class="small-carousel-wrap">
+        <div id="printSlider" class="small-slider">
+          <img src="print1.jpg" alt="Printed marketing example 1" />
+          <img src="print2.jpg" alt="Printed marketing example 2" />
+          <img src="print3.jpg" alt="Printed marketing example 3" />
+          <img src="print4.jpg" alt="Printed marketing example 4" />
+          <img src="print5.jpg" alt="Printed marketing example 5" />
+        </div>
+
+        <button type="button" class="small-slider-btn left" onclick="prevPrintSlide()">‹</button>
+        <button type="button" class="small-slider-btn right" onclick="nextPrintSlide()">›</button>
+      </div>
+
+      <div class="section-copy">
+        <p>
+          Printed assets are created to strengthen a brand’s presence in a tangible way, giving businesses marketing materials that feel refined, on-brand, and worthy of the experience they want customers to have.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="contact">
     <div class="wrap">
       <h2>Ready to elevate your brand?</h2>
@@ -461,11 +543,14 @@
         <a class="btn btn-dark" href="mailto:hello@ehdesignstudio.co.uk">Enquire Now</a>
         <a class="btn btn-light" href="https://www.instagram.com/eh_designstudio/" target="_blank" rel="noreferrer">Instagram</a>
       </div>
+      <p class="social-note">View socials to see wider client work, recent projects, content, and ongoing brand visuals.</p>
     </div>
   </section>
 
   <script>
     let currentSlide = 0;
+    let logoSlide = 0;
+    let printSlide = 0;
 
     function updateSlider() {
       const slider = document.getElementById("slider");
@@ -486,11 +571,44 @@
       updateSlider();
     }
 
+    function updateSmallSlider(sliderId, index) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return index;
+      const totalSlides = slider.querySelectorAll("img").length;
+      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalSlides - 1;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      return index;
+    }
+
+    function nextLogoSlide() {
+      logoSlide++;
+      logoSlide = updateSmallSlider("logoSlider", logoSlide);
+    }
+
+    function prevLogoSlide() {
+      logoSlide--;
+      logoSlide = updateSmallSlider("logoSlider", logoSlide);
+    }
+
+    function nextPrintSlide() {
+      printSlide++;
+      printSlide = updateSmallSlider("printSlider", printSlide);
+    }
+
+    function prevPrintSlide() {
+      printSlide--;
+      printSlide = updateSmallSlider("printSlider", printSlide);
+    }
+
     window.onload = function () {
       updateSlider();
+      logoSlide = updateSmallSlider("logoSlider", logoSlide);
+      printSlide = updateSmallSlider("printSlider", printSlide);
     };
   </script>
 
 </body>
 </html>
+
 
