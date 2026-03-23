@@ -2,11 +2,167 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>EH Design Studio</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f8f3ea;
+        color: #4f4338;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .hero, .section { padding: 70px 0; }
+      h1 {
+        font-size: 56px;
+        font-weight: 300;
+        line-height: 1.1;
+        margin: 0 0 20px;
+      }
+      h2 {
+        font-size: 38px;
+        font-weight: 300;
+        margin: 0 0 20px;
+      }
+      p {
+        line-height: 1.7;
+        color: #6d5f50;
+      }
+      .buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 15px;
+      }
+      .btn-dark {
+        background: #4f4338;
+        color: white;
+      }
+      .btn-light {
+        border: 1px solid #4f4338;
+        color: #4f4338;
+        background: transparent;
+      }
+      .stats, .services {
+        display: grid;
+        gap: 20px;
+      }
+      .stats {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .services {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .card {
+        background: white;
+        padding: 24px;
+        border-radius: 20px;
+      }
+      .contact {
+        background: #4f4338;
+        color: white;
+        padding: 80px 0;
+      }
+      .contact p, .contact h2 { color: white; }
+      @media (max-width: 700px) {
+        h1 { font-size: 42px; }
+        h2 { font-size: 30px; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/main.jsx"></script>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Design that makes your brand look expensive, intentional, and unforgettable.</h1>
+        <p>
+          EH Design Studio creates premium branding, graphic design, social content,
+          and creative visuals for businesses that want a more elevated presence.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-dark" href="#services">View Services</a>
+          <a class="btn btn-light" href="https://www.instagram.com/eh_designstudio/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap stats">
+        <div class="card">
+          <h3>6+</h3>
+          <p>Years in design</p>
+        </div>
+        <div class="card">
+          <h3>Growing & established businesses</h3>
+          <p>Who we work with</p>
+        </div>
+        <div class="card">
+          <h3>Strategic, creative, commercially focused</h3>
+          <p>Approach</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <h2>Services</h2>
+        <div class="services">
+          <div class="card">
+            <h3>Social Media Management</h3>
+            <p>Strategic content planning, feed styling, content scheduling, campaign visuals, organic growth support, and consistent on-brand posting.</p>
+          </div>
+          <div class="card">
+            <h3>Graphic Design & Logo Design</h3>
+            <p>Professional graphic design for businesses wanting a polished visual presence, including logo design, branded assets, launch graphics, and day-to-day design support.</p>
+          </div>
+          <div class="card">
+            <h3>Printed Marketing</h3>
+            <p>Printed marketing designed around what your business needs, including leaflets, business cards, vouchers, brochures, flyers, banners, certificates, and other print materials on request.</p>
+          </div>
+          <div class="card">
+            <h3>Content Creation</h3>
+            <p>Premium content creation for brands, including photography and videography tailored for websites, campaigns, launches, and social media.</p>
+          </div>
+          <div class="card">
+            <h3>Creative Direction</h3>
+            <p>Campaign concepts, premium visual storytelling, art direction, and cohesive creative direction for brands that want to feel elevated and distinctive.</p>
+          </div>
+          <div class="card">
+            <h3>Brand Visual Support</h3>
+            <p>Ongoing creative support for businesses that want cohesive, high-end visuals across digital, print, and social media touchpoints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>About the Studio</h2>
+        <p>
+          EH Design Studio works with businesses that want more than just content —
+          they want a brand presence that feels considered, cohesive, and high-end.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="wrap">
+        <h2>Ready to elevate your brand?</h2>
+        <div class="buttons">
+          <a class="btn btn-light" style="background:white;color:#4f4338;border:none" href="mailto:hello@ehdesignstudio.co.uk">Enquire Now</a>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
