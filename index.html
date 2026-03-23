@@ -6,98 +6,257 @@
     <title>EH Design Studio</title>
     <style>
       * { box-sizing: border-box; }
+
       body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #f8f3ea;
+        background: #d6ccbd;
         color: #4f4338;
       }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
       .wrap {
-        max-width: 1100px;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 24px;
       }
-      .hero, .section { padding: 70px 0; }
+
+      .topbar {
+        padding: 24px 0 10px;
+      }
+
+      .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .main-logo {
+        width: 180px;
+      }
+
+      .secondary-logo {
+        width: 70px;
+        opacity: 0.9;
+      }
+
+      .hero {
+        padding: 24px 0 70px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 34px;
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        background: rgba(255,255,255,0.35);
+        border: 1px solid rgba(255,255,255,0.45);
+        border-radius: 28px;
+        padding: 42px;
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #7c6f62;
+        margin-bottom: 18px;
+      }
+
       h1 {
-        font-size: 56px;
+        font-size: 62px;
+        line-height: 1.02;
         font-weight: 300;
-        line-height: 1.1;
-        margin: 0 0 20px;
+        margin: 0 0 22px;
+        color: #ffffff;
       }
+
+      .hero-copy p {
+        line-height: 1.8;
+        color: #fffaf5;
+        max-width: 540px;
+        font-size: 17px;
+      }
+
+      .buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 13px 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+      }
+
+      .btn-dark {
+        background: #ffffff;
+        color: #6b5f52;
+      }
+
+      .btn-light {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: transparent;
+      }
+
+      .hero-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .hero-images img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 26px;
+        min-height: 240px;
+      }
+
+      .hero-images .large {
+        grid-column: span 2;
+        min-height: 320px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .section-white {
+        background: #f8f3ea;
+      }
+
       h2 {
         font-size: 38px;
         font-weight: 300;
-        margin: 0 0 20px;
+        margin: 0 0 22px;
       }
+
       p {
         line-height: 1.7;
         color: #6d5f50;
       }
-      .buttons {
-        margin-top: 30px;
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .btn {
-        display: inline-block;
-        padding: 12px 20px;
-        border-radius: 999px;
-        text-decoration: none;
-        font-size: 15px;
-      }
-      .btn-dark {
-        background: #4f4338;
-        color: white;
-      }
-      .btn-light {
-        border: 1px solid #4f4338;
-        color: #4f4338;
-        background: transparent;
-      }
+
       .stats, .services {
         display: grid;
         gap: 20px;
       }
+
       .stats {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
+
       .services {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       }
+
       .card {
         background: white;
-        padding: 24px;
-        border-radius: 20px;
+        padding: 26px;
+        border-radius: 22px;
       }
+
+      .card h3 {
+        margin-top: 0;
+        font-weight: 400;
+      }
+
       .contact {
         background: #4f4338;
         color: white;
         padding: 80px 0;
       }
-      .contact p, .contact h2 { color: white; }
-      @media (max-width: 700px) {
-        h1 { font-size: 42px; }
-        h2 { font-size: 30px; }
+
+      .contact h2,
+      .contact p {
+        color: white;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .main-logo {
+          width: 150px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-copy {
+          padding: 28px;
+        }
+
+        h1 {
+          font-size: 40px;
+        }
+
+        .hero-images {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-images .large {
+          grid-column: span 1;
+        }
       }
     </style>
   </head>
   <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <img src="1.jpg" alt="EH Design Studio logo" class="main-logo" />
+        <img src="2.jpg" alt="EH secondary logo" class="secondary-logo" />
+      </div>
+    </header>
+
     <section class="hero">
-      <div class="wrap">
-        <h1>Design that makes your brand look expensive, intentional, and unforgettable.</h1>
-        <p>
-          EH Design Studio creates premium branding, graphic design, social content,
-          and creative visuals for businesses that want a more elevated presence.
-        </p>
-        <div class="buttons">
-          <a class="btn btn-dark" href="#services">View Services</a>
-          <a class="btn btn-light" href="https://www.instagram.com/eh_designstudio/" target="_blank">Instagram</a>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Premium Creative Studio</div>
+          <h1>Design that makes your brand feel elevated, refined, and unforgettable.</h1>
+          <p>
+            EH Design Studio creates premium branding, graphic design, content creation,
+            printed marketing, and social media visuals for businesses that want to look
+            polished, premium, and on-brand.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-dark" href="#services">View Services</a>
+            <a class="btn btn-light" href="mailto:hello@ehdesignstudio.co.uk">Enquire</a>
+          </div>
+        </div>
+
+        <div class="hero-images">
+          <img src="3.jpg" alt="EH brand image" class="large" />
+          <img src="4.jpg" alt="EH studio image" />
+          <img src="5.jpg" alt="EH workspace image" />
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-white">
       <div class="wrap stats">
         <div class="card">
           <h3>6+</h3>
@@ -114,7 +273,7 @@
       </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section section-white" id="services">
       <div class="wrap">
         <h2>Services</h2>
         <div class="services">
@@ -146,12 +305,14 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-white">
       <div class="wrap">
         <h2>About the Studio</h2>
         <p>
           EH Design Studio works with businesses that want more than just content —
           they want a brand presence that feels considered, cohesive, and high-end.
+          From graphic design and printed marketing to content creation and social media
+          management, every detail is created to strengthen how your business is seen.
         </p>
       </div>
     </section>
@@ -160,7 +321,8 @@
       <div class="wrap">
         <h2>Ready to elevate your brand?</h2>
         <div class="buttons">
-          <a class="btn btn-light" style="background:white;color:#4f4338;border:none" href="mailto:hello@ehdesignstudio.co.uk">Enquire Now</a>
+          <a class="btn btn-dark" href="mailto:hello@ehdesignstudio.co.uk">Enquire Now</a>
+          <a class="btn btn-light" href="https://www.instagram.com/eh_designstudio/" target="_blank">Instagram</a>
         </div>
       </div>
     </section>
