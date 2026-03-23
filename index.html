@@ -1,338 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>EH Design Studio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EH Design Studio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-* { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #d6ccbd;
+      color: #4f4338;
+      line-height: 1.7;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #d6ccbd;
-  color: #4f4338;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-img {
-  max-width: 100%;
-  display: block;
-}
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-.wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+    .topbar {
+      padding: 28px 0 18px;
+    }
 
-/* HEADER */
-.topbar {
-  padding: 24px 0 8px;
-}
+    .topbar-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.topbar-inner {
-  display: flex;
-  justify-content: center;
-}
+    .main-logo {
+      width: 170px;
+    }
 
-.main-logo {
-  width: 160px;
-}
+    .hero-image-section {
+      padding: 0 0 24px;
+    }
 
-/* HERO IMAGES */
-.hero {
-  padding: 0 0 30px;
-}
+    .hero-main-image {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
 
-.hero-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+    .intro {
+      padding: 8px 0 56px;
+    }
 
-.hero-images img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 20px;
-}
+    .intro-box {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 28px;
+      padding: 38px 30px;
+    }
 
-.hero-images .large {
-  grid-column: span 2;
-  height: 170px;
-}
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7c6f62;
+      margin-bottom: 18px;
+    }
 
-/* INTRO */
-.intro {
-  padding: 10px 0 60px;
-}
+    h1 {
+      margin: 0 0 18px;
+      font-size: 52px;
+      line-height: 1.05;
+      font-weight: 300;
+      color: #ffffff;
+    }
 
-.intro-box {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  background: rgba(255,255,255,0.3);
-  border-radius: 28px;
-  padding: 36px 28px;
-}
+    h2 {
+      margin: 0 0 22px;
+      font-size: 38px;
+      line-height: 1.15;
+      font-weight: 300;
+      color: #4f4338;
+    }
 
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #7c6f62;
-  margin-bottom: 18px;
-}
+    p {
+      margin: 0 0 18px;
+      color: #6d5f50;
+    }
 
-h1 {
-  font-size: 48px;
-  font-weight: 300;
-  color: white;
-  margin-bottom: 18px;
-}
+    .intro-box p {
+      max-width: 760px;
+      margin: 0 auto 18px;
+      color: #fffaf5;
+      font-size: 17px;
+    }
 
-h2 {
-  font-size: 36px;
-  font-weight: 300;
-}
+    .buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-p {
-  line-height: 1.7;
-}
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      transition: 0.2s ease;
+    }
 
-.intro-box p {
-  color: #fffaf5;
-  max-width: 700px;
-  margin: auto;
-}
+    .btn-dark {
+      background: #ffffff;
+      color: #6b5f52;
+    }
 
-.buttons {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
+    .btn-light {
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      background: transparent;
+    }
 
-.btn {
-  padding: 12px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-}
+    .btn-brown {
+      background: #4f4338;
+      color: #ffffff;
+    }
 
-.btn-dark {
-  background: white;
-  color: #6b5f52;
-}
+    .btn-outline-brown {
+      border: 1px solid #4f4338;
+      color: #4f4338;
+      background: transparent;
+    }
 
-.btn-light {
-  border: 1px solid white;
-  color: white;
-}
+    .section {
+      padding: 72px 0;
+    }
 
-/* SERVICES */
-.section {
-  padding: 70px 0;
-}
+    .section-white {
+      background: #f8f3ea;
+    }
 
-.section-white {
-  background: #f8f3ea;
-}
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
 
-.services {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-}
+    .card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 22px;
+    }
 
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-}
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      font-weight: 400;
+      color: #4f4338;
+    }
 
-/* ABOUT */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
 
-.founder-img {
-  border-radius: 20px;
-}
+    .founder-img {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+      min-height: 520px;
+    }
 
-/* SLIDER */
-.slider-wrap {
-  position: relative;
-  max-width: 900px;
-  margin: 40px auto;
-  overflow: hidden;
-  border-radius: 20px;
-}
+    .slider-wrap {
+      position: relative;
+      max-width: 900px;
+      margin: 36px auto 34px;
+      overflow: hidden;
+      border-radius: 22px;
+    }
 
-#slider {
-  display: flex;
-  transition: 0.5s;
-}
+    #slider {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
 
-#slider img {
-  width: 100%;
-  flex: 0 0 100%;
-}
+    #slider img {
+      width: 100%;
+      flex: 0 0 100%;
+      height: 540px;
+      object-fit: cover;
+    }
 
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: white;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      color: #4f4338;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
 
-.left { left: 10px; }
-.right { right: 10px; }
+    .slider-btn.left {
+      left: 14px;
+    }
 
-.content-copy {
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-}
+    .slider-btn.right {
+      right: 14px;
+    }
 
-/* CONTACT */
-.contact {
-  background: #4f4338;
-  color: white;
-  padding: 80px 0;
-  text-align: center;
-}
+    .content-copy {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-.contact h2,
-.contact p {
-  color: white;
-}
+    .contact {
+      background: #4f4338;
+      color: #ffffff;
+      padding: 84px 0;
+      text-align: center;
+    }
 
-/* MOBILE */
-@media (max-width: 640px) {
-  h1 { font-size: 32px; }
+    .contact h2,
+    .contact p {
+      color: #ffffff;
+    }
 
-  .hero-images img { height: 90px; }
-  .hero-images .large { height: 130px; }
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 42px;
+      }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+      h2 {
+        font-size: 32px;
+      }
+
+      .services,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main-image {
+        height: 260px;
+      }
+
+      .founder-img {
+        min-height: 0;
+        height: auto;
+      }
+
+      #slider img {
+        height: 440px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 0 18px;
+      }
+
+      .main-logo {
+        width: 145px;
+      }
+
+      .hero-main-image {
+        height: 210px;
+        border-radius: 18px;
+      }
+
+      .intro-box {
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      #slider img {
+        height: 300px;
+      }
+
+      .slider-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <img src="1.jpg" class="main-logo">
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-images">
-      <img src="3.jpg" class="large">
-      <img src="4.jpg">
-      <img src="5.jpg">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <img src="1.jpg" alt="EH Design Studio logo" class="main-logo" />
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="intro">
-  <div class="wrap">
-    <div class="intro-box">
-      <div class="eyebrow">Premium Creative Studio</div>
-      <h1>Design that makes your brand feel elevated, refined, and unforgettable.</h1>
+  <section class="hero-image-section">
+    <div class="wrap">
+      <img src="3.jpg" alt="EH Design Studio brand image" class="hero-main-image" />
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-box">
+        <div class="eyebrow">Premium Creative Studio</div>
+        <h1>Design that makes your brand feel elevated, refined, and unforgettable.</h1>
+        <p>
+          EH Design Studio offers thoughtful, visually-led creative support for businesses wanting a more polished and commercially compelling presence, from social media management and graphic design to printed marketing, photography, videography, and wider brand development.
+        </p>
+        <p>
+          Whether you are looking to strengthen your content, refresh your visuals, rebrand your business, or build a brand from the ground up, every detail is approached with a premium eye and a clear understanding of what feels both visually strong and appealing to your audience.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-dark" href="#services">View Services</a>
+          <a class="btn btn-light" href="mailto:hello@ehdesignstudio.co.uk">Enquire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white" id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Social Media Management</h3>
+          <p>
+            Strategic social media support tailored to your brand, including content planning, feed direction, caption support, visual consistency, campaign content, and ongoing management designed to help your business look refined, relevant, and professionally maintained online.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Graphic Design</h3>
+          <p>
+            Premium graphic design for businesses wanting a polished visual identity, including logo design, branded assets, launch graphics, promotional materials, social content, and cohesive design support that strengthens how your business is seen across every touchpoint.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Printed Marketing</h3>
+          <p>
+            Thoughtfully designed print materials created around your business needs, including leaflets, flyers, brochures, business cards, vouchers, certificates, banners, menus, and wider printed marketing that feels considered, on-brand, and elevated.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Content Creation</h3>
+          <p>
+            High-quality photography and videography created to give your brand a more refined and professional presence, whether for social media, launches, campaigns, websites, promotional use, or ongoing content libraries that keep your business looking strong and current.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="wrap">
+      <h2>About the Studio</h2>
       <p>
-        EH Design Studio creates premium branding, content creation and design for businesses wanting to look polished and premium.
+        EH Design Studio works with businesses that want more than just content — they want a brand presence that feels considered, cohesive, and high-end. From design and printed marketing to social media support and content creation, every element is developed to strengthen how your business is presented both online and in person.
+      </p>
+      <p>
+        The studio works across a range of industries and supports both growing and established businesses, creating visuals that are not only beautiful, but commercially effective and aligned with the standard your brand wants to represent.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="wrap about-grid">
+      <div>
+        <h2>About the Founder</h2>
+        <p>
+          Founded by Elissa, EH Design Studio is built on over 6 years of experience across social media management, graphic design, and content creation.
+        </p>
+        <p>
+          What began as a genuine creative passion has grown into a results-driven approach to helping businesses present themselves with more clarity, quality, and confidence. Elissa has built trust with clients across different industries, successfully managing social accounts, shaping visual direction, and producing content that feels both elevated and appealing to customers.
+        </p>
+        <p>
+          With a strong eye for detail and a clear understanding of what makes a brand feel visually strong, Elissa works closely with businesses to refine their image, support a rebrand, or build a brand from the ground up in a way that feels cohesive, premium, and commercially relevant.
+        </p>
+      </div>
+      <div>
+        <img src="founder.jpg" alt="Elissa founder" class="founder-img" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="wrap">
+      <h2 style="text-align:center;">Content Creation Days</h2>
+      <p style="text-align:center;max-width:760px;margin:0 auto 20px;">
+        Starting from £30 per hour, content creation days are designed to give your business a polished bank of professional visuals that can be used confidently across social media, websites, launches, campaigns, and wider marketing.
       </p>
 
+      <div class="slider-wrap">
+        <div id="slider">
+          <img src="content1.jpg" alt="Content creation image 1" />
+          <img src="content2.jpg" alt="Content creation image 2" />
+          <img src="content3.jpg" alt="Content creation image 3" />
+          <img src="content4.jpg" alt="Content creation image 4" />
+          <img src="content5.jpg" alt="Content creation image 5" />
+          <img src="content6.jpg" alt="Content creation image 6" />
+          <img src="content7.jpg" alt="Content creation image 7" />
+          <img src="content8.jpg" alt="Content creation image 8" />
+          <img src="content9.jpg" alt="Content creation image 9" />
+          <img src="content10.jpg" alt="Content creation image 10" />
+        </div>
+
+        <button type="button" class="slider-btn left" onclick="prevSlide()">‹</button>
+        <button type="button" class="slider-btn right" onclick="nextSlide()">›</button>
+      </div>
+
+      <div class="content-copy">
+        <p>
+          Each content day is planned with intention before we even begin shooting. I start by discussing your goals, shaping ideas around your brand, and creating a moodboard so the final visuals feel cohesive, elevated, and aligned with what works best across social media.
+        </p>
+        <p>
+          On the day, I can capture exactly what you need, whether that is behind-the-scenes content, treatments, products, team content, lifestyle visuals, campaign imagery, branded photography, or video footage. I also guide the creative direction throughout and offer ideas around what is most visually effective and engaging for your audience.
+        </p>
+        <p>
+          After your shoot, you will receive a shared drive filled with your raw videos and photos, giving you a strong bank of content to use across your platforms, website, launches, and wider marketing.
+        </p>
+        <p>
+          Where needed, I can then turn that content into professionally edited reels, refined imagery, and polished visual assets that are ready to post and designed to strengthen your overall brand presence.
+        </p>
+        <p>
+          Bespoke packages are available depending on how much content you need and the type of output you would like from the day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>Ready to elevate your brand?</h2>
+      <p>For enquiries, collaborations, and bookings, get in touch directly.</p>
       <div class="buttons">
-        <a class="btn btn-dark" href="#services">View Services</a>
-        <a class="btn btn-light" href="mailto:hello@ehdesignstudio.co.uk">Enquire</a>
+        <a class="btn btn-dark" href="mailto:hello@ehdesignstudio.co.uk">Enquire Now</a>
+        <a class="btn btn-light" href="https://www.instagram.com/eh_designstudio/" target="_blank" rel="noreferrer">Instagram</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section section-white" id="services">
-  <div class="wrap">
-    <h2>Services</h2>
-    <div class="services">
-      <div class="card"><h3>Social Media</h3><p>Content planning & growth.</p></div>
-      <div class="card"><h3>Graphic Design</h3><p>Logos & branding visuals.</p></div>
-      <div class="card"><h3>Print</h3><p>Flyers, brochures & more.</p></div>
-      <div class="card"><h3>Content Creation</h3><p>Photo & video.</p></div>
-    </div>
-  </div>
-</section>
+  <script>
+    let currentSlide = 0;
 
-<section class="section section-white">
-  <div class="wrap about-grid">
-    <div>
-      <h2>About the Founder</h2>
-      <p>Elissa has 6+ years experience in social media, design and content creation.</p>
-      <p>Helping brands grow visually and stand out.</p>
-    </div>
-    <div>
-      <img src="founder.jpg" class="founder-img">
-    </div>
-  </div>
-</section>
+    function updateSlider() {
+      const slider = document.getElementById("slider");
+      if (!slider) return;
+      const totalSlides = slider.querySelectorAll("img").length;
+      if (currentSlide >= totalSlides) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
 
-<section class="section section-white">
-  <div class="wrap">
-    <h2 style="text-align:center;">Content Creation Days</h2>
+    function nextSlide() {
+      currentSlide++;
+      updateSlider();
+    }
 
-    <div class="slider-wrap">
-      <div id="slider">
-        <img src="content1.jpg">
-        <img src="content2.jpg">
-        <img src="content3.jpg">
-        <img src="content4.jpg">
-        <img src="content5.jpg">
-      </div>
+    function prevSlide() {
+      currentSlide--;
+      updateSlider();
+    }
 
-      <button class="slider-btn left" onclick="prevSlide()">‹</button>
-      <button class="slider-btn right" onclick="nextSlide()">›</button>
-    </div>
-
-    <div class="content-copy">
-      <p>From £30/hour. Premium content creation tailored to your brand.</p>
-    </div>
-  </div>
-</section>
-
-<section class="contact">
-  <div class="wrap">
-    <h2>Ready to elevate your brand?</h2>
-    <a class="btn btn-dark" href="mailto:hello@ehdesignstudio.co.uk">Enquire Now</a>
-  </div>
-</section>
-
-<script>
-let currentSlide = 0;
-
-function updateSlider(){
-  const slider = document.getElementById("slider");
-  const total = slider.children.length;
-  if(currentSlide >= total) currentSlide = 0;
-  if(currentSlide < 0) currentSlide = total-1;
-  slider.style.transform = `translateX(-${currentSlide*100}%)`;
-}
-
-function nextSlide(){ currentSlide++; updateSlider(); }
-function prevSlide(){ currentSlide--; updateSlider(); }
-</script>
+    window.onload = function () {
+      updateSlider();
+    };
+  </script>
 
 </body>
 </html>
